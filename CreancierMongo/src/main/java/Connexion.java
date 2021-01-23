@@ -27,7 +27,7 @@ public class Connexion {
             // Connect to MongoDB Server on localhost, port 27017 (default)
             final MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
             // Connect to Database
-            database = mongoClient.getDatabase("MovieLens");
+            database = mongoClient.getDatabase("CreancierMarocTelecom");
             System.out.println("Successful database connection established. \n");
 
         } catch (Exception exception) {
