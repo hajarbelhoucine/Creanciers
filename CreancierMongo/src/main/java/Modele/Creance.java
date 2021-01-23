@@ -1,11 +1,15 @@
 package Modele;
 
+import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Creance {
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Creance implements Serializable {
 
 
-
+    @XmlTransient
     private long id_creance;
     private long num_contrat;
     private String type ;      //  Fixe ou INTERNET
