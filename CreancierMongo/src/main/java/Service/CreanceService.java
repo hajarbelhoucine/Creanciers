@@ -2,6 +2,7 @@ package Service;
 
 import Modele.Compte;
 import Modele.Creance;
+import Modele.Facture;
 import com.mongodb.ErrorCategory;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -21,6 +22,7 @@ import java.util.*;
 public class CreanceService {
 
     public Creance creance;
+    public FactureService facture;
     public Collection<Compte> compte;
 
     @WebMethod
@@ -149,6 +151,14 @@ public class CreanceService {
 
                 return listcreance;
             }
+       /*     public void change_state(){
+        if (facture == new FactureService()) {
+            this.creance.setEtat_creance(0);
+        }
+            }
+            */
+
+
 
 
 
