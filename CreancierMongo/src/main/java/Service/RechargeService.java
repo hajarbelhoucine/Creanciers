@@ -2,7 +2,6 @@ package Service;
 
 
 import Modele.Compte;
-import Modele.Creance;
 import Modele.Recharge;
 import com.mongodb.ErrorCategory;
 import com.mongodb.MongoClient;
@@ -13,14 +12,14 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
-import java.time.LocalDate;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebService;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-
+@WebService(name = "recahge")
 public class RechargeService {
 
     public Recharge recharge;
@@ -31,8 +30,8 @@ public class RechargeService {
         return Math.abs(intGenerator.nextInt());
     }
 
-
-    public void effectuerRecharge(double montant) {
+    @WebMethod(operationName= "effectuerrecharge")
+    public double effectuerRecharge(@WebParam(name= "montant")double montant) {
        // Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
       //  mongoLogger.setLevel(Level.SEVERE);
 
@@ -103,7 +102,7 @@ public class RechargeService {
                 }
             }
             }
-
+return montant;
 
 
 

@@ -18,6 +18,7 @@ import com.mongodb.client.MongoCollection;
 
 import org.bson.Document;
 
+import javax.xml.ws.Endpoint;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,36 +27,30 @@ public class Connexion {
 
 
    public static void main(String[] args) {
+       String url="http://localhost:8586/MarocTelecom";
+
        Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
        mongoLogger.setLevel(Level.SEVERE);
 
-       MongoDatabase database = null;
 
-       try {
-           // Connect to MongoDB Server on localhost, port 27017 (default)
-           MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
-           // Connect to Database
-           database = mongoClient.getDatabase("CreancierMarocTelecom");
-           System.out.println("Successful database connection established. \n");
-
-       } catch (Exception exception) {
-           System.err.println(exception.getClass().getName() + ": " + exception.getMessage());
-       }
+       //Endpoint.publish(url,new CreanceService());
+       RechargeService rechargeService  = new RechargeService();
+       CompteService compteService = new CompteService();
+       CreanceService creanceService = new CreanceService();
+       Endpoint.publish(url,rechargeService);
 
 
-        CompteService compteService = new CompteService();
 
-        CreanceService creanceService = new CreanceService();
 
-       RechargeService rechargeService = new RechargeService();
-       FactureService factureService = new FactureService();
-       rechargeService.effectuerRecharge(10.0);
-       rechargeService.effectuerRecharge(1087.0);
+     //  RechargeService rechargeService = new RechargeService();
+     //  FactureService factureService = new FactureService();
+      // rechargeService.effectuerRecharge(30.0);
+     //  rechargeService.effectuerRecharge(1087.0);
 
        //  compteService.ajoutCompte(database);
        // creanceService.genererCreance();
        // creanceService.listerCreance();
-      factureService.generateFacture(1);
+   //   factureService.generateFacture(1);
 
 
     }

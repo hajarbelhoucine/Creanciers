@@ -18,8 +18,9 @@ import java.time.LocalDate;
 import java.util.*;
 
 
-@WebService
+@WebService(name = "creance")
 public class CreanceService {
+
 
     public Creance creance;
     public FactureService facture;
@@ -115,7 +116,7 @@ public class CreanceService {
                 }
                 }
             }
-            @WebMethod
+            @WebMethod(operationName = "ListerCreance")
             public List<Creance> listerCreance(){
 
 
